@@ -1,0 +1,183 @@
+@charset "utf-8";
+/* Customization by JG */
+
+a {font-weight:bold;color:#2C4F70;text-decoration:none;}
+
+.pure-form input[type="text"]:focus,
+.pure-form input[type="password"]:focus,
+.pure-form input[type="email"]:focus,
+.pure-form input[type="url"]:focus,
+.pure-form input[type="date"]:focus,
+.pure-form input[type="month"]:focus,
+.pure-form input[type="time"]:focus,
+.pure-form input[type="datetime"]:focus,
+.pure-form input[type="datetime-local"]:focus,
+.pure-form input[type="week"]:focus,
+.pure-form input[type="number"]:focus,
+.pure-form input[type="search"]:focus,
+.pure-form input[type="tel"]:focus,
+.pure-form input[type="color"]:focus,
+.pure-form select:focus,
+.pure-form textarea:focus {
+    border-color: #000000;
+}
+
+.pure-form-stacked input[type="text"],
+.pure-form-stacked input[type="password"],
+.pure-form-stacked input[type="email"],
+.pure-form-stacked input[type="url"],
+.pure-form-stacked input[type="date"],
+.pure-form-stacked input[type="month"],
+.pure-form-stacked input[type="time"],
+.pure-form-stacked input[type="datetime"],
+.pure-form-stacked input[type="datetime-local"],
+.pure-form-stacked input[type="week"],
+.pure-form-stacked input[type="number"],
+.pure-form-stacked input[type="search"],
+.pure-form-stacked input[type="tel"],
+.pure-form-stacked input[type="color"],
+.pure-form-stacked input[type="file"],
+.pure-form-stacked select {
+  width:100%;
+  max-width: 375px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #999;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; 
+  border-radius: 0;
+  padding-bottom: 2px;
+  padding-left: 2px;
+}
+
+.pure-form-stacked label {
+	margin-bottom: .6em;
+	margin-top: 0px;
+	font-size:.95em;
+	color: #666;	
+}
+
+.pure-form-stacked select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;	
+}
+
+.pure-form-stacked select option {
+	  direction: rtl;
+}
+
+.pure-form legend {
+	font-size:1.3em;
+}
+
+.pure-button-primary,
+.pure-button-selected,
+a.pure-button-primary,
+a.pure-button-selected {
+    background-color: #666;
+}
+
+.pure-button {
+    font-size: .8em;
+    padding: .6em 2em;
+}
+
+select.minimalHOLD {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%), 
+    linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 1em,
+    calc(100% - 15px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    6px 6px,
+    6px 6px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  height:30px;
+}
+
+select.minimalHOLD:focus {
+  background-image:
+    linear-gradient(45deg, gray 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, gray 50%);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%), 
+    linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position:
+    calc(100% - 10px) 1em,
+    calc(100% - 5px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    6px 6px,
+    6px 6px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  height:30px;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, gray 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, gray 50%);
+  background-position:
+    calc(100% - 5px) 1em,
+    calc(100% - 10px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    6px 6px,
+    6px 6px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.ri-right-bold {
+	text-align:right;
+	font-weight:bold;
+}
+.ri-bold {
+	font-weight:bold;
+}
+.ri-right {
+	text-align:right;
+}
+.ri-top {
+	vertical-align:top;
+}
+.ri-menu, .ri-menu-debit {
+	color: #FFFFFF;
+	font-weight:normal;
+	display: inline-block;
+	margin-right: 3em;
+}
+
+.ri-wrapper {
+	padding:30px;
+	max-width:1000px;
+}
+	
+@media only screen and (max-width: 1055px) {
+	.ri-menu-debit {
+		margin-right: 1.5em;
+		font-size: .85em;
+	}
+}

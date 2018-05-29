@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'assets/css/ri-pure-min.css';
+@import 'assets/css/ri-custom-min.css';
+.nopadding {
+    padding: 0 !important;
+}
+
+.nopaddingleft {
+    padding-left: 0 !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.nomarginleft {
+    margin-left: 0 !important;
+}
