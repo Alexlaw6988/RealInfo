@@ -2,6 +2,9 @@
 /* Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 /* Custom Modules */
 import { routing } from 'src/app/_routing/routing.module';
@@ -30,8 +33,10 @@ import { AccountService} from './_services/services';
     NavmenuComponent,
     PageNotFoundComponent,
   ],
-  imports: [
+  imports: [    
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     routing
   ],
   providers: [AccountService],

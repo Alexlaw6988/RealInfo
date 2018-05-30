@@ -225,6 +225,7 @@ namespace RealInfo.Controllers
         }
 
         // POST api/Account/AddExternalLogin
+        [AllowAnonymous]
         [Route("AddExternalLogin")]
         public async Task<IHttpActionResult> AddExternalLogin(AddExternalLoginBindingModel model)
         {
@@ -390,9 +391,11 @@ namespace RealInfo.Controllers
         }
 
         // POST api/Account/Register
+        [HttpGet]
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+
         {
             if (!ModelState.IsValid)
             {
@@ -402,6 +405,10 @@ namespace RealInfo.Controllers
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            //var user = new ApplicationUser() { UserName = "test", Email = "test@gmail.com" };
+
+            //IdentityResult result = await UserManager.CreateAsync(user, "Welcome@123");
 
             if (!result.Succeeded)
             {

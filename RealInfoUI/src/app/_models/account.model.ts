@@ -1,9 +1,9 @@
 export class loginModel
 {
-    Email : string;
+    UserName : string;
     Password:string;
     constructor(){
-        this.Email ="";
+        this.UserName ="";
         this.Password="";
        
     }

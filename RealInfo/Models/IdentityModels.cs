@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using RealInfo.App.Constants;
 
 namespace RealInfo.Models
 {
@@ -24,19 +25,20 @@ namespace RealInfo.Models
         public ApplicationDbContext()
             : base("OracleDbContext", throwIfV1Schema: false)
         {
-
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); // MUST go first.
 
-            modelBuilder.HasDefaultSchema("REALINFO"); // Use uppercase!
+            modelBuilder.HasDefaultSchema("TP_ACC_ADMIN"); // Use uppercase!
 
-            modelBuilder.Entity<ApplicationUser>().ToTable("AspNetUsers");
-            modelBuilder.Entity<IdentityRole>().ToTable("AspNetRoles");
-            modelBuilder.Entity<IdentityUserRole>().ToTable("AspNetUserRoles");
-            modelBuilder.Entity<IdentityUserClaim>().ToTable("AspNetUserClaims");
-            modelBuilder.Entity<IdentityUserLogin>().ToTable("AspNetUserLogins");
+            modelBuilder.Entity<ApplicationUser>().ToTable("AspNetUsers".ToUpper());            
+            modelBuilder.Entity<IdentityRole>().ToTable("AspNetRoles".ToUpper());
+            modelBuilder.Entity<IdentityUserRole>().ToTable("AspNetUserRoles".ToUpper());
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("AspNetUserClaims".ToUpper());
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("AspNetUserLogins".ToUpper());
+            modelBuilder.Properties().Configure(c => c.HasColumnName(c.ClrPropertyInfo.Name.ToUpper()));
 
         }
         public static ApplicationDbContext Create()

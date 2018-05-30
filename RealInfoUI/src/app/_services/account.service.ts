@@ -10,7 +10,10 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   login(model : loginModel) {
-    let data = 'username=' + model.Email + '&password=' + model.Password + '&grant_type=password';
+
+    alert('login');
+
+    let data = 'username=' + model.UserName + '&password=' + model.Password + '&grant_type=password';
 
     let reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'No-Auth': 'True' });
 
