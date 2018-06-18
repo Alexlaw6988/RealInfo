@@ -3,24 +3,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 /* Custom Modules */
 import { routing } from 'src/app/_routing/routing.module';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { NavmenuComponent } from './navmenu/navmenu.component';
-import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import {
+  HomeComponent,
+  AboutComponent,
+  ReportProductsComponent,
+  ListproductsComponent,
+  CoverageComponent,
+  PricingComponent,
+  ContactComponent,
+  LoginComponent,
+  RegisterComponent,
+  SuccessregComponent,
+  PageNotFoundComponent,
+  HeaderComponent,
+  FooterComponent,
+  NavmenuComponent,
+  SelectProductComponent,
+  SearchProductComponent
+} from './_components/components';
 
 /*Services */
-import { AccountService} from './_services/services';
+import { AccountService, AppGetService,PropertyService } from './_services/services';
+import { CookieService } from 'ngx-cookie-service';
+
+/*Directives */
+import { EqualValidator } from './_directives/directives';
+
+/* http Interceptor */
+import { realInfoHttpInterceptor } from './_interceptors/realInfoHttpInterceptor';
 
 @NgModule({
   declarations: [
@@ -32,14 +51,29 @@ import { AccountService} from './_services/services';
     RegisterComponent,
     NavmenuComponent,
     PageNotFoundComponent,
+    EqualValidator,
+    AboutComponent,
+    ReportProductsComponent,
+    ListproductsComponent,
+    CoverageComponent,
+    PricingComponent,
+    ContactComponent,
+    SuccessregComponent,
+    SelectProductComponent,
+    SearchProductComponent
   ],
-  imports: [    
+  imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgHttpLoaderModule,
     routing
   ],
-  providers: [AccountService],
+  providers: [AccountService, AppGetService, CookieService,PropertyService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: realInfoHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

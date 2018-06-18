@@ -1,0 +1,228 @@
+<div class="row" style="padding:20px">
+
+  <div class="col-lg-1"></div>
+
+  <div class="col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        <h2>Register to Use </h2>
+      </div>
+      <div class="card-body">
+
+
+        <p>
+          Three types of accounts can be established for access to Target Property, a credit card account, a debit account or a monthly
+          billing account. For immediate access to Xpress Search, please establish a debit account (minimum amount of $100.00)
+          or credit card account (enter credit card for each search), by completing the form below.
+
+
+        </p>
+
+        <p> To establish a monthly billing account please call 630 517 9750 (Collar Counties) or 312 637 4845 (Cook County).
+        </p>
+
+        <form novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+
+          <div class="row">
+            <div class="form-group col-lg-6" [ngClass]="{
+										'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+										'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+								   }">
+              <label>First Name<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="model.UserProfile.FIRSTNAME" required #firstName="ngModel">
+              <div class="form-control-feedback" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                <p *ngIf="firstName.errors.required">First name is required</p>
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6" [ngClass]="{
+										'has-danger': lastName.invalid && (lastName.dirty || lastName.touched),
+										'has-success': lastName.valid && (lastName.dirty || lastName.touched)
+								   }">
+              <label>Last Name<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="lastName" [(ngModel)]="model.UserProfile.LASTNAME" required #lastName="ngModel">
+              <div class="form-control-feedback" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                <p *ngIf="lastName.errors.required">Last name is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-lg-6" [ngClass]="{
+											'has-danger': companyName.invalid && (companyName.dirty || companyName.touched),
+											'has-success': companyName.valid && (companyName.dirty || companyName.touched)
+									   }">
+              <label>Company Name<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="companyName" [(ngModel)]="model.UserProfile.COMPANYNAME" required #companyName="ngModel">
+              <div class="form-control-feedback" *ngIf="companyName.errors && (companyName.dirty || companyName.touched)">
+                <p *ngIf="companyName.errors.required">Company name is required</p>
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6" [ngClass]="{
+											'has-danger': address.invalid && (address.dirty || address.touched),
+											'has-success': address.valid && (address.dirty || address.touched)
+									   }">
+              <label>Address<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="address" [(ngModel)]="model.UserProfile.ADDRESS" required #address="ngModel">
+              <div class="form-control-feedback" *ngIf="address.errors && (address.dirty || address.touched)">
+                <p *ngIf="address.errors.required">Address is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-lg-4" [ngClass]="{
+												'has-danger': city.invalid && (city.dirty || city.touched),
+												'has-success': city.valid && (city.dirty || city.touched)
+										   }">
+              <label>City<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="city" [(ngModel)]="model.UserProfile.CITY" required #city="ngModel">
+              <div class="form-control-feedback" *ngIf="city.errors && (city.dirty || city.touched)">
+                <p *ngIf="city.errors.required">City is required</p>
+              </div>
+            </div>
+
+            <div class="form-group col-lg-4" [ngClass]="{
+												'has-danger': state.invalid && (state.dirty || state.touched),
+												'has-success': state.valid && (state.dirty || state.touched)
+										   }">
+              <label>State<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="state" [(ngModel)]="model.UserProfile.STATE" required #state="ngModel">
+              <div class="form-control-feedback" *ngIf="state.errors && (state.dirty || state.touched)">
+                <p *ngIf="state.errors.required">State is required</p>
+              </div>
+            </div>
+
+            <div class="form-group col-lg-4" [ngClass]="{
+				'has-danger': zip.invalid && (zip.dirty || zip.touched),
+				'has-success': zip.valid && (zip.dirty || zip.touched)
+		   }">
+              <label>Zip<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="zip" [(ngModel)]="model.UserProfile.ZIP" required #zip="ngModel">
+              <div class="form-control-feedback" *ngIf="zip.errors && (zip.dirty || zip.touched)">
+                <p *ngIf="zip.errors.required">zip is required</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+
+            <div class="form-group col-lg-6" [ngClass]="{
+												'has-danger': telephone.invalid && (telephone.dirty || telephone.touched),
+												'has-success': telephone.valid && (telephone.dirty || telephone.touched)
+										   }">
+              <label>Telephone<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="telephone" [(ngModel)]="model.UserProfile.CONTACTNO" required #telephone="ngModel">
+              <div class="form-control-feedback" *ngIf="telephone.errors && (telephone.dirty || telephone.touched)">
+                <p *ngIf="telephone.errors.required">Telephone is required</p>
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6" [ngClass]="{
+					'has-danger': email.invalid && (email.dirty || email.touched),
+					'has-success': email.valid && (email.dirty || email.touched)
+			   }">
+              <label>Email<span style="color:red">*</span></label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="model.UserProfile.EMAIL" required pattern="[^ @]*@[^ @]*"
+               required #email="ngModel">
+              <div class="form-control-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+                <p *ngIf="email.errors.required">Email is required</p>
+                <p *ngIf="email.errors.pattern">Email must contain at least the @ character</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label>Preferred method of contact</label>
+              <select class="form-control" name="contactmethod" [(ngModel)]="model.UserProfile.CONTACTMETHOD">
+                <option value="EMAIL">EMAIL</option>
+                <option value="TELEPHONE">TELEPHONE</option>
+              </select>
+
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label>Current <b>Propert Insight</b> customer?</label>
+              <select class="form-control" name="alreadymember" [(ngModel)]="model.UserProfile.ALREADYMEMBER">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6" [ngClass]="{
+                'has-danger': userName.invalid && (userName.dirty || userName.touched),
+                'has-success': userName.valid && (userName.dirty || userName.touched)
+               }">
+              <label>User Name<span style="color:red">*</span></label>
+              <input type="text" class="form-control" name="userName" [(ngModel)]="model.UserProfile.USERNAME" required #userName="ngModel">
+              <div class="form-control-feedback" *ngIf="userName.errors && (userName.dirty || userName.touched)">
+                <p *ngIf="userName.errors.required">User name is required</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6" [ngClass]="{
+                'has-danger': password.invalid && (password.dirty || password.touched),
+                'has-success': password.valid && (password.dirty || password.touched)
+              }">
+              <label>Password<span style="color:red">*</span></label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="model.Password" required minlength="6" validateEqual="cpassword"
+                reverse="true" #password="ngModel">
+              <div class="form-control-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
+                <p *ngIf="password.errors.required">Password is required</p>
+                <p *ngIf="password.errors.minlength">Password must be at least 6 characters long</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6" [ngClass]="{
+            'has-danger': cpassword.invalid && (cpassword.dirty || cpassword.touched),
+            'has-success': cpassword.valid && (cpassword.dirty || cpassword.touched)
+          }">
+              <label>Confirm Password<span style="color:red">*</span></label>
+              <input type="password" class="form-control" name="cpassword" [(ngModel)]="model.ConfirmPassword" required validateEqual="password"
+                reverse="false" #cpassword="ngModel">
+              <div class="form-control-feedback" *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)">
+                <p *ngIf="cpassword.errors.required">Confirm Password is required</p>
+                <p *ngIf="cpassword.invalid">Password and Confirm Password must match</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6" [ngClass]="{
+            'has-danger': account.invalid && (account.dirty || account.touched),
+            'has-success': account.valid && (account.dirty || account.touched)
+          }">
+              <label>Account Type:<span style="color:red">*</span></label>
+              <select class="form-control" name="account" [(ngModel)]="model.UserProfile.ACCOUNTTYPE" required #account="ngModel">
+                <option value="">select</option>
+                <option value="bill">Billing Account</option>
+                <option value="credit">Credit Account</option>
+                <option value="debit">Debit Account</option>
+                <option value="monthly">Monthly Subscribers</option>
+              </select>
+              <div class="form-control-feedback" *ngIf="account.errors && (account.dirty || account.touched)">
+                <p *ngIf="account.errors.required">Account Type is required</p>
+
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Register
+          </button>
+          <span class="col-lg-2 float-lg-right" align="center" style="color:red">* Required field</span>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-1"></div>
+</div>

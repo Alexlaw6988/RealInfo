@@ -1,0 +1,381 @@
+<div class="row" style="padding:10px">
+
+  <div class="col-lg-2"></div>
+
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header ">
+        <div class="row">
+          <div class="col-lg-10 ">
+            <h4>Order a Report {{searchTitle}} </h4>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body justify-content-center">
+        {{schema}} data is current through {{coverDate.DateThru|date}}
+        <div *ngIf="!searchResult">
+          <div *ngIf="!searchCriteria" class=" justify-content-center">
+
+            <div style="font-size:1.2em;font-weight:bold;text-align:center;">Select Report Type:&nbsp;&nbsp;</div>
+            <br>
+            <span id="ContentPlaceHolder1_lblErr" style="color:Red;">{{error}}</span>
+            <br>
+            <div class="row col-lg-12">
+              <div class="col-lg-6" style="margin-top:30px;">
+                <div style="padding:10px;line-height:1.5em;border: solid 1px #999;">
+                  <strong>Property Detail Report</strong>
+                  <br>
+                  <em>Produces a current view for a single property.</em>
+                  <Br>
+                  <br>
+                  <label for="rdoDetail">Search by:</label>
+
+                  <table class="radiobutton">
+                    <tr>
+                      <td>
+                        <input type="radio" name="searchPD" [(ngModel)]="searchPD" value="Owner Name" />
+                        <label> Owner Name</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="radio" name="searchPD" [(ngModel)]="searchPD" value="Tax Number" />
+                        <label> Tax Number</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="radio" name="searchPD" [(ngModel)]="searchPD" value="Property Address" />
+                        <label> Property Address</label>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <br>
+                  <strong>Target Property Pay-per-use Pricing </strong>
+                  <br>
+                  <table style="width:100%;">
+                    <tr>
+                      <td colspan="2">Debit Account Customers</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>Individual Property Detail Report</td>
+                      <td>$10.00 per&nbsp;property</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>One Full Detail Report (CMA with 5-10 comps)</td>
+                      <td>$20.00 per&nbsp;property </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">All Other Customers</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>Individual Property Detail Report</td>
+                      <td>$15.00 per&nbsp;property</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>One Full Detail Report (CMA with 5-10 comps)</td>
+                      <td>$30.00 per&nbsp;property </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Document Images</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>Cost per document</td>
+                      <td>$5.00 per&nbsp;document </td>
+                    </tr>
+                  </table>
+                  <br>
+                  <div style="text-align:center;">
+                    <button type="submit" (click)="continuePD()" class="pure-button pure-button-primary">Continue</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" style="margin-top:30px;">
+                <div style="padding:10px;line-height:1.5em;border: solid 1px #999;">
+                  <strong>Property History Report</strong>
+                  <br>
+                  <em>Produces a historical view for a single property.</em>
+                  <Br>
+                  <br>
+                  <label for="rdoHistory">Search by:</label>
+                  <table class="radiobutton">
+                    <tr>
+                      <td>
+                        <input type="radio" name="searchPH" [(ngModel)]="searchPH" value="Owner Name" />
+                        <label> Owner Name</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="radio" name="searchPH" [(ngModel)]="searchPH" value="Tax Number" />
+                        <label> Tax Number</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="radio" name="searchPH" [(ngModel)]="searchPD" value="Property Address" />
+                        <label> Property Address</label>
+                      </td>
+                    </tr>
+                  </table>
+                  <br>
+                  <strong>Target Property Pay-per-use Pricing </strong>
+                  <br>
+                  <table style="width:100%;">
+                    <tr>
+                      <td colspan="2">Debit Account Customers</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>Individual Property Detail Report</td>
+                      <td>$10.00 per&nbsp;property</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>One Full Detail Report (CMA with 5-10 comps)</td>
+                      <td>$20.00 per&nbsp;property </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">All Other Customers</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>Individual Property Detail Report</td>
+                      <td>$15.00 per&nbsp;property</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>One Full Detail Report (CMA with 5-10 comps)</td>
+                      <td>$30.00 per&nbsp;property </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">Document Images</td>
+                    </tr>
+                    <tr style="font-size:.85em;">
+                      <td>Cost per document</td>
+                      <td>$5.00 per&nbsp;document </td>
+                    </tr>
+                  </table>
+                  <br>
+                  <div style="text-align:center;">
+                    <button type="submit" (click)="continuePH()" class="pure-button pure-button-primary">Continue</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" style="margin-top:30px;">
+                <div style="padding:10px;line-height:1.5em;border: solid 1px #999;">
+                  <strong>Order a Document</strong>
+                  <br>
+                  <em>Returns a document image.</em>
+                  <Br>
+                  <br>
+                  <div style="text-align:center;">
+                    <button type="submit" (click)="continueOD()" class="pure-button pure-button-primary">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div *ngIf="searchCriteria" class=" justify-content-center">
+            <div *ngIf="searchPD =='Owner Name' || searchPH =='Owner Name'">
+              <form novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+
+
+                <div class="row">
+                  <div class="form-group col-lg-8">
+                    <label>
+                      <b></b>Name Match Logic</label>
+                    <div class="row col-lg-11">
+                      <select class="form-control col-lg-2" style="margin:10px;" name="account" [(ngModel)]="modelON.FirstNameCondition" required
+                        #account="ngModel">
+                        <option value="e">Is exactly</option>
+                        <option value="s">Starts with</option>
+                      </select>
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="First Name" name="firstName" [(ngModel)]="modelON.FirstName"
+                        required #firstName="ngModel">
+                    </div>
+                    <div class="row col-lg-11">
+                      <select class="form-control col-lg-2" style="margin:10px;" name="account" [(ngModel)]="modelON.LastNameCondition" required
+                        #account="ngModel">
+                        <option value="e">Is exactly</option>
+                        <option value="s">Starts with</option>
+                      </select>
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="Last Name" name="firstName" [(ngModel)]="modelON.LastName"
+                        required #firstName="ngModel">
+                    </div>
+
+                  </div>
+                </div>
+
+                <button type="submit" style="margin:10px;" class="btn btn-primary" [disabled]="f.invalid">List Records
+                </button>
+                <button type="submit" style="margin:10px;" class="btn btn-default" [disabled]="f.invalid">Reset
+                </button>
+                <span class="col-lg-2 float-lg-right" align="center" style="color:red">* Required field</span>
+
+              </form>
+            </div>
+            <div *ngIf="searchPD =='Tax Number' || searchPH =='Tax Number'">
+              <form novalidate (ngSubmit)="onSubmit()" #t="ngForm">
+
+
+                <div class="row">
+                  <div class="form-group col-lg-8">
+                    <label>
+                      <b></b>Tax Number</label>
+                    <div class="row col-lg-11">
+
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="Tax Number" name="taxNumber" [(ngModel)]="modelTax.TaxNumber"
+                        required #firstName="ngModel">
+                    </div>
+
+                  </div>
+                </div>
+
+                <button type="submit" style="margin:10px;" class="btn btn-primary" [disabled]="t.invalid">List Records
+                </button>
+                <button type="submit" style="margin:10px;" class="btn btn-default" [disabled]="t.invalid">Reset
+                </button>
+                <span class="col-lg-2 float-lg-right" align="center" style="color:red">* Required field</span>
+
+              </form>
+            </div>
+            <div *ngIf="searchPD =='Property Address' || searchPH =='Property Address'">
+              <form novalidate (ngSubmit)="onSubmit()" #s="ngForm">
+                <div class="row">
+                  <div class="form-group col-lg-8">
+                    <label>
+                      <b></b>Street Number</label>
+                    <div class="row col-lg-11">
+
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="Street Number" name="streetNumber" [(ngModel)]="modelAdd.StreetNumber"
+                        required #streetNumber="ngModel">
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-8">
+                    <label>
+                      <b></b>Street Name</label>
+                    <div class="row col-lg-11">
+
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="Street Name" name="streetName" [(ngModel)]="modelAdd.StreetName"
+                        required #streetName="ngModel">
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-8">
+                    <label>
+                      <b></b>City</label>
+                    <div class="row col-lg-11">
+
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="City" name="city" [(ngModel)]="modelAdd.City"
+                        required #city="ngModel">
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-8">
+                    <label>
+                      <b></b>Zip</label>
+                    <div class="row col-lg-11">
+
+                      <input type="text" class="form-control col-lg-4" style="margin:10px;" placeholder="Zip code" name="zip" [(ngModel)]="modelAdd.ZipCode"
+                        required #zip="ngModel">
+                    </div>
+
+
+                  </div>
+                </div>
+
+                <button type="submit" style="margin:10px;" class="btn btn-primary" [disabled]="s.invalid">List Records
+                </button>
+                <button type="submit" style="margin:10px;" class="btn btn-default" [disabled]="s.invalid">Reset
+                </button>
+                <span class="col-lg-2 float-lg-right" align="center" style="color:red">* Required field</span>
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="searchResult">
+          <p *ngIf="searchPD =='Owner Name' || searchPH =='Owner Name'">Search criteria: Find all properties where Owner Name is {{modelON.firstName}} </p>
+          <p *ngIf="searchPD =='Tax Number' || searchPH =='Tax Number'">Search criteria: Find all properties where Tax Number is {{modelTax.TaxNumber}} </p>
+          <p *ngIf="searchPD =='Property Address' || searchPH =='Property Address'">Search criteria: Find all properties where Property Address is 
+            {{modelAdd.StreetNumber}} , {{modelAdd.StreetName}}, {{modelAdd.City}}, {{modelAdd.ZipCode}} </p>
+
+          <p>Records Found: {{searchResults.length}}</p>
+          <div class="row justify-content-center">
+            <table class="table col-lg-7">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">No:</th>
+                  <th scope="col">Search Results:</th>
+
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let cd of searchResults; index as i">
+                  <td>{{i + 1}}</td>
+                  <td>
+                    <div >
+                      <b>Owner Name:</b> {{cd.OWNER_NAME}}
+                      <br> 
+                      <b>Address:</b> {{cd.OWNERS_ADDRESS}}
+                    </div>
+                  </td>
+
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-2"></div>
+</div>
+
+<!-- <div class="row" style="padding:10px">
+
+    <div class="col-lg-2"></div>
+  
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header ">
+          <div class="row">
+            <div class="col-lg-10 ">
+              <h2>Order a Search: </h2>
+            </div>
+           
+          </div>
+  
+        </div>
+        <div class="card-body justify-content-center">
+  
+          <div class="row justify-content-center">
+           
+          </div>
+  
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+    <div class="col-lg-2"></div>
+</div> -->

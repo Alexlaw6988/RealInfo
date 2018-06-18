@@ -38,6 +38,7 @@ namespace RealInfo.Models
             modelBuilder.Entity<IdentityUserRole>().ToTable("AspNetUserRoles".ToUpper());
             modelBuilder.Entity<IdentityUserClaim>().ToTable("AspNetUserClaims".ToUpper());
             modelBuilder.Entity<IdentityUserLogin>().ToTable("AspNetUserLogins".ToUpper());
+            modelBuilder.Entity<UserProfileModel>().ToTable("USER_PROFILE".ToUpper());
             modelBuilder.Properties().Configure(c => c.HasColumnName(c.ClrPropertyInfo.Name.ToUpper()));
 
         }

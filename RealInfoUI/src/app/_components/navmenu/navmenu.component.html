@@ -1,0 +1,127 @@
+<nav style="background-color:#91221E; z-index:1000;padding-top:0px;padding-bottom:0px" class="navbar navbar-expand-lg navbar-light">
+  <a style="margin-left: -15px; width:300px" class="navbar-brand nopadding"  [routerLink]="['login']">
+    <img src="Scripts/assets/images/logo.png" style="height:50px;">
+  </a>
+  <button style="color:white;border:1px solid" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fa fa-bars"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <!-- <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['home']">
+                    <span class='fa fa-home '></span> Home
+                </a>
+            </li> -->
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['about']">
+          <span class='fa fa-address-card-o '></span> About
+        </a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['report']">
+          <span class='fa fa-bar-chart'></span> Report&nbsp;Products
+        </a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['products']">
+          <span class='fa fa-cart-plus '></span> List&nbsp;Product
+        </a>
+      </li>
+      <!-- <li [routerLinkActive]="['active']" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class='fa fa-cart-plus '></span> Products
+                </a>
+                <div style="background-color:#91221E; z-index:1000;padding-top:0px;padding-bottom:0px" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="nav-link" [routerLink]="['home/report']">
+                        <span class='fa fa-bar-chart'></span> Report&nbsp;Products
+                    </a>
+                    <a class="nav-link" [routerLink]="['home/products']">
+                        <span class='fa fa-cart-plus '></span> List&nbsp;Products
+                    </a>
+                </div>
+            </li> -->
+      <!-- <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['home/report']">
+                    <span class='fa fa-education '></span> Report&nbsp;Products
+                </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['home/products']">
+                    <span class='fa fa-about '></span> List&nbsp;Products
+                </a>
+            </li> -->
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['coverage']">
+          <span class='fa fa-globe '></span> Coverage
+        </a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['pricing']">
+          <span class='fa fa-money '></span> Pricing
+        </a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['contact']">
+          <span class='fa fa-address-book-o '></span> Contact
+        </a>
+      </li>
+      <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+    </ul>
+    <!-- <div style="color:white; font-size:12px" class=" my-2 my-lg-0">
+
+      <b>Account Type: CREDIT</b><br>
+
+      <b><span class='fa fa-dollar '></span>Account Balance:00.00</b>
+    </div> -->
+    <div class=" my-2 my-lg-0">
+
+
+      <a *ngIf="!userName" style="color:white" [routerLink]="['login']" class="btn btn-sm my-2 my-sm-0">
+        <span class='fa fa-unlock-alt'></span>&nbsp;Login</a>
+
+      <div *ngIf="userName" class="nav-item dropdown">
+
+        <a style="color:white;padding-bottom:0px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Welcome back {{userName}} &nbsp;
+          <span class='fa fa-user '></span>
+        </a>
+
+        <div style="background-color:#91221E; z-index:1000;padding-top:0px;padding-bottom:0px;width:100%" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a style="color:white" class="nav-link" (click)="logOff()">
+            <span class='fa fa-lock'></span> Change Password
+          </a>
+          <a style="color:white" class="nav-link" (click)="logOff()">
+            <span class='fa fa-lock'></span> Profile
+          </a>
+          <a style="color:white" class="nav-link" (click)="logOff()">
+            <span class='fa fa-lock'></span> Settings
+          </a>
+          <a style="color:white" class="nav-link" (click)="logOff()">
+            <span class='fa fa-lock'></span> Log Off
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

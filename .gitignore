@@ -362,3 +362,11 @@ __pycache__/
 
 
 # End of https://www.gitignore.io/api/visualstudio
+*.js
+*.map
+*.js
+*.map
+RealInfo/Scripts/main.js.map
+RealInfo/Scripts/polyfills.js
+RealInfo/Scripts/runtime.js
+*.js

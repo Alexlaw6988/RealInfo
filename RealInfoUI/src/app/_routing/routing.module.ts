@@ -1,16 +1,36 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from 'src/app/home/home.component';
-import { PageNotFoundComponent } from 'src/app/pagenotfound/pagenotfound.component';
-import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../register/register.component';
+import {
+  HomeComponent,
+  AboutComponent,
+  ReportProductsComponent,
+  ListproductsComponent,
+  CoverageComponent,
+  PricingComponent,
+  ContactComponent,
+  LoginComponent,
+  RegisterComponent,
+  SuccessregComponent,
+  PageNotFoundComponent,
+  SelectProductComponent,
+  SearchProductComponent
+} from '../_components/components';
 
 const appRoutes: Routes =
   [
-    { path: 'home', component: HomeComponent },
-    { path: 'home/login', component: LoginComponent },
-    { path: 'home/register', component: RegisterComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'dashboard', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'report', component: ReportProductsComponent },
+    { path: 'products', component: ListproductsComponent },
+    { path: 'coverage', component: CoverageComponent },
+    { path: 'pricing', component: PricingComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: 'selectProduct', component: SelectProductComponent },    
+    { path: 'searchProduct', component: SearchProductComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },    
+    { path: 'scucessRegisteration', component: SuccessregComponent },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
   ];
 

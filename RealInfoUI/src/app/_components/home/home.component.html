@@ -1,0 +1,59 @@
+<div class="row" style="padding:10px">
+
+  <div class="col-lg-2"></div>
+
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header ">
+        <div class="row">
+          <div class="col-lg-10 ">
+            <h2>Order a Search: </h2>
+          </div>
+          <div class=" col-lg-2  float-lg-right">
+
+            <b>Account Type: CREDIT</b>
+            <br>
+
+            <b>
+              <span class='fa fa-dollar '></span>Account Balance:00.00</b>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body justify-content-center">
+
+        <div class="row justify-content-center">
+          <table class="table col-lg-4">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Select a County:</th>
+                <th scope="col">Current through:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="col">ILLINOIS :</th>
+
+              </tr>
+              <tr *ngFor="let cd of coverDateList">
+
+                <td>
+                  <a style="text-decoration:  underline;cursor: pointer;" (click)="selectProduct(cd);">{{cd.County.replace('IL_','')}}</a>
+                </td>
+                <td>{{cd.DateThru|date}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-2"></div>
+</div>

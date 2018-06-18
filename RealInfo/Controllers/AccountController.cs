@@ -26,8 +26,34 @@ namespace RealInfo.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
+        private ApplicationDbContext db;
+
         public AccountController()
         {
+        }
+
+        private UserProfileModel InsertUserProfile(UserProfileModel model)
+        {
+            try
+            {
+                using (db = new ApplicationDbContext())
+                {
+                    model.INSERT_DATE = DateTime.UtcNow;
+
+                    model = db.Set<UserProfileModel>().Add(model);
+
+                    db.SaveChangesAsync();
+
+                    return model;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -143,7 +169,7 @@ namespace RealInfo.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByNameAsync(model.UserProfile.USERNAME);
 
             var token = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
 
@@ -390,25 +416,26 @@ namespace RealInfo.Controllers
             return logins;
         }
 
-        // POST api/Account/Register
-        [HttpGet]
+        // POST api/Account/Register       
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
-
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.UserProfile.USERNAME, Email = model.UserProfile.EMAIL };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
-            //var user = new ApplicationUser() { UserName = "test", Email = "test@gmail.com" };
+            model.UserProfile.USERID = user.Id;
 
-            //IdentityResult result = await UserManager.CreateAsync(user, "Welcome@123");
+           var profile = InsertUserProfile(model.UserProfile);
+
+
 
             if (!result.Succeeded)
             {
@@ -566,6 +593,8 @@ namespace RealInfo.Controllers
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }
+
+
 
         #endregion
     }

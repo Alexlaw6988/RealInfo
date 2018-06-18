@@ -18,3 +18,15 @@
 .nomarginleft {
     margin-left: 0 !important;
 }
+
+.form-control-feedback{
+    color:red !important;
+}
+
+.has-danger .form-control{
+    border-color: red !important;
+}
+
+.has-success .form-control{
+    border-color: green !important;
+}

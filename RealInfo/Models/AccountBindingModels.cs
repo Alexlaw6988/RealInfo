@@ -34,9 +34,7 @@ namespace RealInfo.Models
 
     public class RegisterBindingModel
     {
-        [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -48,7 +46,70 @@ namespace RealInfo.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public UserProfileModel UserProfile { get; set; }
     }
+
+    public class UserProfileModel
+    {
+       [Key]
+        public string USERID { get; set; }
+
+        [Required]
+        public string USERNAME { get; set; }
+
+        [Required]
+        public string EMAIL { get; set; }
+
+        [Required]
+        public string FIRSTNAME { get; set; }
+
+        [Required]
+        public string LASTNAME { get; set; }
+
+        [Required]
+        public string COMPANYNAME { get; set; }
+
+        [Required]
+        public string ADDRESS { get; set; }
+
+        [Required]
+        public string CITY { get; set; }
+
+        [Required]
+        public string STATE { get; set; }
+
+        [Required]
+        public string ZIP { get; set; }
+
+        [Required]
+        public string CONTACTNO { get; set; }
+
+        [Required]
+        public string ACCOUNTTYPE { get; set; }
+
+        
+        public string CONTACTMETHOD { get; set; }
+
+        
+        public string ALREADYMEMBER { get; set; }
+
+        
+        public string PROMOCODE { get; set; }
+
+        
+        public string BILLING_STATUS { get; set; }
+
+       
+        public DateTime INSERT_DATE { get; set; }
+
+        
+        public DateTime UPDATE_DATE { get; set; }
+
+
+
+    }
+
 
     public class RegisterExternalBindingModel
     {
