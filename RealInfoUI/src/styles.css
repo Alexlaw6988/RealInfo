@@ -30,3 +30,6 @@
 .has-success .form-control{
     border-color: green !important;
 }
+.test{
+  color:blue;
+}
